@@ -10,7 +10,7 @@ const RateListPage: React.FC = observer(() => {
 
   useEffect(() => {
     ratesStore.fetchRates();
-  }, [ratesStore]);
+  }, []);
 
   if (ratesStore.isLoading) return <div>Loading...</div>;
   if (ratesStore.error) return <div>Error: {ratesStore.error}</div>;

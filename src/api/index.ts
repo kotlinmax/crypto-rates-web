@@ -1,7 +1,7 @@
-import axios from 'axios';
+import RatesAPI from './rates/RatesAPI';
 
-export default class Api {
-  static rates = axios.create({
-    baseURL: 'https://app.youhodler.com/api/v3/rates/', // TODO env
-  });
+class API {
+  rates = new RatesAPI();
 }
+
+export default new API();

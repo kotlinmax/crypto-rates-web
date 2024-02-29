@@ -1,10 +1,11 @@
-import {makeAutoObservable} from 'mobx';
-import {IGetRates} from '../../api/rates/IRates';
+import API from '../../api';
 
-import ratesRepository from '../../api/rates/Rates';
+import {makeAutoObservable} from 'mobx';
+import {RateDetail} from '../../api/rates/IRatesAPI';
 
 export default class RatesStore {
-  rates: IGetRates | null = null;
+  tag: string = 'RatesStore';
+  rates: RateDetail[] = [];
   error: string = '';
   isLoading: boolean = false;
 
@@ -16,10 +17,10 @@ export default class RatesStore {
     try {
       this.isLoading = true;
       this.error = '';
-      this.rates = await ratesRepository.getRates();
+      this.rates = await API.rates.getRates();
     } catch (error) {
       this.error = 'Failed to fetch rates';
-      console.error(error);
+      console.error(`[${this.tag}] fetchRates: `, error);
     } finally {
       this.isLoading = false;
     }
