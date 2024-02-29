@@ -8,6 +8,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './styles/normalize.scss';
 import './styles/reset.scss';
 import './index.scss';
+import Loader from './components/Loader/Loader';
 
 // TODO react-window
 // TODO test
@@ -23,7 +24,7 @@ root.render(
     <StoresContext.Provider value={rootStore}>
       <BrowserRouter>
         <ErrorBoundary>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Routes>
               <Route path='/' element={<RateListPage />} />
               <Route path='/rates/:name' element={<RateInfoPage />} />

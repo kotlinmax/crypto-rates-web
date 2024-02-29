@@ -1,10 +1,10 @@
 export interface IGetRates {
   [key: string]: {
     [key: string]: {
-      rate: number;
-      ask: number;
-      bid: number;
-      diff24h: number;
+      rate: number | string;
+      ask: number | string;
+      bid: number | string;
+      diff24h: number | string;
     };
   };
 }
