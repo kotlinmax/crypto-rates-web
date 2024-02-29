@@ -4,7 +4,9 @@ import router from './routes';
 import {createRoot} from 'react-dom/client';
 import {RouterProvider} from 'react-router-dom';
 
-import './index.css';
+import './styles/normalize.scss';
+import './styles/reset.scss';
+import './index.scss';
 
 // TODO error boundary
 // TODO react-window

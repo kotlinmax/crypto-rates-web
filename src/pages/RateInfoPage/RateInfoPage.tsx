@@ -1,6 +1,6 @@
 import React from 'react';
+import s from './RateInfoPage.module.scss';
 
-import './RateInfoPage.css';
 import {useLocation, useParams} from 'react-router-dom';
 
 const RateInfoPage: React.FC = () => {

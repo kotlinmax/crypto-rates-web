@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './RateListPage.css';
+import s from './RateListPage.module.scss';
 import {Link} from 'react-router-dom';
 
 const RateListPage: React.FC = () => {
