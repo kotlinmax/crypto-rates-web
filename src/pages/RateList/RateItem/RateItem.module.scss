@@ -1,11 +1,18 @@
 .rateItem {
+  transition: all 0.2s ease-in;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
   margin: 10px 0;
-  background-color: #f9f9f9;
+  background-color: #fff;
   width: 100%;
   display: flex;
+  box-shadow: 0 2px 4px rgba(0.1, 0.1, 0.1, 0.1);
+
+  &:hover {
+    border: 1.3px solid #3898ec;
+    box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
+  }
 }
 
 .header {

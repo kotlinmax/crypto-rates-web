@@ -1,3 +1,5 @@
+import {CSSProperties} from 'react';
+
 interface Rate {
   baseCurrency: string;
   targetCurrency: string;
@@ -9,4 +11,9 @@ interface Rate {
 
 export interface RateItemListProps {
   rates: Rate[];
+}
+
+export interface RenderRowProps {
+  index: number;
+  style: CSSProperties;
 }

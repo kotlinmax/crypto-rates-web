@@ -9,6 +9,7 @@ import './styles/normalize.scss';
 import './styles/reset.scss';
 import './index.scss';
 import Loader from './components/Loader/Loader';
+import HomePage from './pages/Home/HomePage';
 
 // TODO react-window
 // TODO test
@@ -26,7 +27,8 @@ root.render(
         <ErrorBoundary>
           <Suspense fallback={<Loader />}>
             <Routes>
-              <Route path='/' element={<RateListPage />} />
+              <Route path='/' element={<HomePage />} />
+              <Route path='/rates' element={<RateListPage />} />
               <Route path='/rates/:name' element={<RateInfoPage />} />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
