@@ -1,5 +1,5 @@
 import {IGetRates, IRatesRepository} from './IRates';
-import {Api} from '..';
+import Api from '..';
 
 const ratesRepository: IRatesRepository = {
   getRates: async () => {
