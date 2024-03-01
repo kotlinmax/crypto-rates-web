@@ -11,6 +11,8 @@ export default class RatesStore {
   filteredRates: RateDetail[] = [];
   isLoading: boolean = false;
   isSearch: boolean = false;
+  isSorting: boolean = false;
+  isDesc: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -21,6 +23,7 @@ export default class RatesStore {
       this.isLoading = true;
       this.error = '';
       this.rates = await API.rates.getRates();
+      this.rates.sort((a, b) => a.baseCurrency.localeCompare(b.baseCurrency));
     } catch (error) {
       this.error = 'Failed to fetch rates';
       console.error(`[${this.tag}] fetchRates: `, error);
@@ -37,8 +40,23 @@ export default class RatesStore {
     this.isSearch = value;
   }
 
+  setIsSorting(value: boolean) {
+    this.isSorting = value;
+  }
+
   setSearchText(value: string) {
     this.searchText = value;
+  }
+
+  changeSort() {
+    this.isDesc = !this.isDesc;
+    if (this.isDesc) {
+      this.rates.sort((a, b) => b.baseCurrency.localeCompare(a.baseCurrency));
+      this.filteredRates.sort((a, b) => b.baseCurrency.localeCompare(a.baseCurrency));
+    } else {
+      this.rates.sort((a, b) => a.baseCurrency.localeCompare(b.baseCurrency));
+      this.filteredRates.sort((a, b) => a.baseCurrency.localeCompare(b.baseCurrency));
+    }
   }
 
   get isEmpty(): Boolean {

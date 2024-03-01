@@ -11,6 +11,7 @@ interface Rate {
 
 export interface RateItemListProps {
   rates: Rate[];
+  isDesc: boolean;
 }
 
 export interface RenderRowProps {

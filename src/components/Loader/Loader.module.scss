@@ -11,8 +11,8 @@
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #2979ff;
-  border-color: #2979ff transparent #2979ff transparent;
+  border: 6px solid var(--primary-color);
+  border-color: var(--primary-color) transparent var(--primary-color) transparent;
   animation: loader 1.2s linear infinite;
 }
 

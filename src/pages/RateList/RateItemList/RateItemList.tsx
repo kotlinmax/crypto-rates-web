@@ -6,7 +6,7 @@ import {RateItemListProps, RenderRowProps} from './IRateItemList';
 import {FixedSizeList as List} from 'react-window';
 
 const RateItemList: React.FC<RateItemListProps> = ({rates}) => {
-  const headerFooterInputHeight = 172;
+  const headerFooterInputHeight = 180;
   return (
     <List
       height={window.innerHeight - headerFooterInputHeight}
