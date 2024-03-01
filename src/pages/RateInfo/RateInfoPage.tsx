@@ -3,10 +3,13 @@ import s from './RateInfoPage.module.scss';
 
 import {useLocation} from 'react-router-dom';
 import {RateInfoPageProps} from './IRateInfoPage';
+import NotFoundPage from '../NotFound/NotFoundPage';
 
 const RateInfoPage: React.FC = () => {
   const location = useLocation();
   const state: RateInfoPageProps = location.state;
+
+  if (!state) return <NotFoundPage />;
 
   const {baseCurrency, targetCurrency, bid, ask, diff24h, rate} = state;
 

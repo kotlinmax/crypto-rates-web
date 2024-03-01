@@ -40,7 +40,7 @@ const RateListPage: React.FC = observer(() => {
   return (
     <main className={s.rateItemList}>
       <div className={s.top}>
-        <button className={s.sort} onClick={handleSortChange}>
+        <button className={s.sort} onClick={handleSortChange} title='Sort currency'>
           Sort {isDesc ? '▼' : '▲'}
         </button>
         <input

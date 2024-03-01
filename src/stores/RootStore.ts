@@ -1,5 +1,5 @@
 import React from 'react';
-import RatesStore from './RatesStore/RateStore';
+import RatesStore from './RatesStore/RatesStore';
 
 class RootStore {
   ratesStore: RatesStore;

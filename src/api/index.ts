@@ -4,4 +4,6 @@ class API {
   rates = new RatesAPI();
 }
 
-export default new API();
+const api = new API();
+
+export default api;

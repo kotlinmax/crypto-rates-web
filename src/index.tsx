@@ -1,5 +1,6 @@
 import './styles/normalize.scss';
 import './styles/reset.scss';
+import './styles/mixins.scss';
 import './index.scss';
 
 import React, {Suspense, lazy} from 'react';
@@ -18,8 +19,6 @@ const RateInfoPage = lazy(() => import('./pages/RateInfo/RateInfoPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFound/NotFoundPage'));
 
 const root = createRoot(document.getElementById('root')!);
-
-// TODO test
 
 root.render(
   <React.StrictMode>

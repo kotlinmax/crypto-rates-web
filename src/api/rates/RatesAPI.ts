@@ -1,10 +1,11 @@
 import {IGetRates} from './IRatesAPI';
 import axios from 'axios';
 import transformRatesData from './utils/transformRatesData';
+import config from '../../config';
 
 class RatesAPI {
   rateAPI = axios.create({
-    baseURL: 'https://app.youhodler.com/api/v3/rates/', // TODO env
+    baseURL: `https://${config.YOUHODLER_API}/rates/`,
   });
 
   async getRates() {

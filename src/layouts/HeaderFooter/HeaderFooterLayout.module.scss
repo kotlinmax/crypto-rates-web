@@ -1,8 +1,7 @@
-/* HeaderFooterLayout.module.scss */
+@import '../../styles//mixins.scss';
+
 .layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-column-center;
   justify-content: space-between;
   height: 100vh;
   width: 42rem;

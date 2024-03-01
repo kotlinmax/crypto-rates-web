@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './RateItem.module.scss';
+
 import {RateItemProps} from './IRateItem';
 import {useNavigate} from 'react-router-dom';
 
@@ -10,14 +11,19 @@ const RateItem: React.FC<RateItemProps> = props => {
 
   // prettier-ignore
   return (
-    <button className={s.rateItem} onClick={() => navigate(url, {state: props})}>
+    <button 
+      className={s.rateItem}  
+      aria-label='Open info rate' 
+      title='Open info rate'
+      onClick={() => navigate(url, {state: props})}
+    >
       <div className={s.header}>
         <span>{baseCurrency.toUpperCase()}</span>/<span>{targetCurrency.toUpperCase()}</span>
       </div>
       <div className={s.body}>
         <div>Rate: {rate.toFixed(6)}</div>
         <div className={diff24h >= 0 ? 'positive' : 'negative'}>
-          24h Change: {(diff24h * 100).toFixed(2)}%
+          24h Change: {(diff24h).toFixed(6)}
         </div>
       </div>
     </button>
