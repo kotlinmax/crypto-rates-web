@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useTransition, ChangeEvent, useState} from 'react';
+import React, {useContext, useEffect, ChangeEvent} from 'react';
 import {observer} from 'mobx-react-lite';
 import {StoresContext} from '../../stores/RootStore';
 import {debounce} from 'lodash';
@@ -8,37 +8,33 @@ import RateItemList from './RateItemList/RateItemList';
 import LoaderErrorLayout from '../../layouts/LoaderError/LoaderErrorLayout';
 
 const RateListPage: React.FC = observer(() => {
-  const ratesStore = useContext(StoresContext).ratesStore;
-  const {rates, filteredRates, isEmpty, isLoading, isSearch, isDesc, isSorting} = ratesStore;
-  const [isPending, startSearchingTransition] = useTransition();
+  const store = useContext(StoresContext).ratesStore;
+  const {rates, filteredRates, searchText, error} = store;
+  const {isEmpty, isLoading, isSearching, isDesc, isSorting} = store;
 
   useEffect(() => {
-    if (!ratesStore.rates.length) {
-      ratesStore.fetchRates();
+    if (!store.rates.length) {
+      store.fetchRates();
     }
   }, []);
 
   const debouncedSearch = debounce((text: string) => {
-    startSearchingTransition(() => {
-      ratesStore.setFilteredRates(text);
-      ratesStore.setIsSearch(false);
-    });
+    store.setFilteredRates(text);
+    store.setIsSearching(false);
   }, 300);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    ratesStore.setIsSearch(true);
-    ratesStore.setSearchText(e.target.value);
+    store.setIsSearching(true);
+    store.setSearchText(e.target.value);
     debouncedSearch(e.target.value);
   };
 
   const handleSortChange = () => {
-    ratesStore.setIsSorting(true);
-    // для больших данных (1 млн.) используется setTimeout, что бы операция попала в очередь макротасок
-    // и компонент смог сделать ререндер для отображения Sorting... и не завис
+    store.setIsSorting(true);
     setTimeout(() => {
-      ratesStore.changeSort();
-      ratesStore.setIsSorting(false);
-    });
+      store.changeSort();
+      store.setIsSorting(false);
+    }, 0); // for big data (1 million)
   };
 
   return (
@@ -50,20 +46,20 @@ const RateListPage: React.FC = observer(() => {
         <input
           className={s.inputSearch}
           type='text'
-          value={ratesStore.searchText}
+          value={searchText}
           onChange={handleSearchChange}
-          placeholder='Search by currency'
+          placeholder='Search'
         />
       </div>
 
       {isSorting ? (
-        <span className={s.info}> Sorting...</span>
+        <span className={s.info}> Sorting ...</span>
+      ) : isSearching ? (
+        <span className={s.info}> Searching ...</span>
       ) : isEmpty ? (
-        <span className={s.info}> Not found rates</span>
-      ) : isPending || isSearch ? (
-        <span className={s.info}> Searching...</span>
+        <span className={s.info}> Not found rates.</span>
       ) : (
-        <LoaderErrorLayout isLoading={isLoading} error={ratesStore.error}>
+        <LoaderErrorLayout isLoading={isLoading} error={error}>
           <RateItemList rates={filteredRates.length ? filteredRates : rates} isDesc={isDesc} />
         </LoaderErrorLayout>
       )}

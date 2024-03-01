@@ -10,13 +10,13 @@ const RateItem: React.FC<RateItemProps> = props => {
 
   // prettier-ignore
   return (
-    <button className={s.rateItem} onClick={() => navigate(url)}>
+    <button className={s.rateItem} onClick={() => navigate(url, {state: props})}>
       <div className={s.header}>
         <span>{baseCurrency.toUpperCase()}</span>/<span>{targetCurrency.toUpperCase()}</span>
       </div>
       <div className={s.body}>
         <div>Rate: {rate.toFixed(6)}</div>
-        <div className={diff24h >= 0 ? s.positive : s.negative}>
+        <div className={diff24h >= 0 ? 'positive' : 'negative'}>
           24h Change: {(diff24h * 100).toFixed(2)}%
         </div>
       </div>

@@ -1,0 +1,31 @@
+.rateInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+
+  .title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+
+  .circle {
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+    border: solid 1px;
+    box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      margin: 0.7rem 0;
+    }
+  }
+}

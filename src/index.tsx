@@ -19,7 +19,6 @@ const NotFoundPage = lazy(() => import('./pages/NotFound/NotFoundPage'));
 
 const root = createRoot(document.getElementById('root')!);
 
-// TODO filter search sort
 // TODO test
 
 root.render(

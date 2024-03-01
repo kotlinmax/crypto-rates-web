@@ -1,10 +1,11 @@
 .rateItemList {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
 
   .top {
     width: 100%;
@@ -14,30 +15,23 @@
     margin-bottom: 1rem;
 
     .sort {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       background-color: transparent;
       flex: 1;
     }
 
     .inputSearch {
       flex: 4;
+      height: 3.2rem;
       outline: none;
       padding: 1rem;
-      height: 3.2rem;
-      border: solid 1px black;
       margin: 0 2rem;
-      width: 20rem;
-      &:focus {
-        border-color: var(--primary-color);
-      }
+      border: solid 1px var(--secondary-color);
+
+      &:focus,
       &:hover {
         border-color: var(--primary-color);
       }
-    }
-
-    .count {
-      flex: 1;
-      font-size: 2rem;
     }
   }
 

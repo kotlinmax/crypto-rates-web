@@ -10,7 +10,7 @@ export default class RatesStore {
   rates: RateDetail[] = [];
   filteredRates: RateDetail[] = [];
   isLoading: boolean = false;
-  isSearch: boolean = false;
+  isSearching: boolean = false;
   isSorting: boolean = false;
   isDesc: boolean = false;
 
@@ -36,8 +36,8 @@ export default class RatesStore {
     this.filteredRates = this.rates.filter(rate => rate.baseCurrency.includes(value));
   }
 
-  setIsSearch(value: boolean) {
-    this.isSearch = value;
+  setIsSearching(value: boolean) {
+    this.isSearching = value;
   }
 
   setIsSorting(value: boolean) {
@@ -50,13 +50,15 @@ export default class RatesStore {
 
   changeSort() {
     this.isDesc = !this.isDesc;
-    if (this.isDesc) {
-      this.rates.sort((a, b) => b.baseCurrency.localeCompare(a.baseCurrency));
-      this.filteredRates.sort((a, b) => b.baseCurrency.localeCompare(a.baseCurrency));
-    } else {
-      this.rates.sort((a, b) => a.baseCurrency.localeCompare(b.baseCurrency));
-      this.filteredRates.sort((a, b) => a.baseCurrency.localeCompare(b.baseCurrency));
-    }
+
+    const comparator = (a: RateDetail, b: RateDetail) => {
+      const ac = a.baseCurrency;
+      const bc = b.baseCurrency;
+      return this.isDesc ? bc.localeCompare(ac) : ac.localeCompare(bc);
+    };
+
+    this.rates.sort(comparator);
+    this.filteredRates.sort(comparator);
   }
 
   get isEmpty(): Boolean {

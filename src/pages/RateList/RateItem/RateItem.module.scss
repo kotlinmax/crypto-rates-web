@@ -1,8 +1,9 @@
 .rateItem {
   transition: all 0.2s ease-in;
   border: 1px solid #ccc;
-  padding: 1.6rem;
+  padding: 1.4rem;
   margin: 1rem 0;
+
   background-color: #fff;
   width: 100%;
   display: flex;
@@ -16,12 +17,9 @@
 }
 
 .header {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 1.2rem;
-  span {
-    color: #333;
-  }
 }
 
 .body {

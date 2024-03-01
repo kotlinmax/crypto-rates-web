@@ -1,11 +1,10 @@
 :root {
-  // colors
   --primary-color: #3898ec;
-  --secondary-color: #6c757d;
+  --secondary-color: #ccc;
   --background-color: #f8f9fa;
   --text-color: #212529;
-
-  // fonts
+  --green-color: rgb(36, 181, 36);
+  --red-color: rgb(196, 59, 59);
   --main-font-family: 'Mina', Helvetica, Arial, sans-serif;
 }
 
@@ -14,7 +13,6 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-  // for all browser
   src: url('./assets/fonts/Mina-Regular.eot');
   src: url('./assets/fonts/Mina-Regular.eot?#iefix') format('embedded-opentype'),
     url('./assets/fonts/Mina-Regular.woff2') format('woff2'), url('./assets/fonts/Mina-Regular.woff') format('woff'),
@@ -27,7 +25,6 @@
   font-weight: bold;
   font-style: normal;
   font-display: swap;
-  // for all browser
   src: url('./assets/fonts/Mina-Bold.eot');
   src: url('./assets/fonts/Mina-Bold.eot?#iefix') format('embedded-opentype'),
     url('./assets/fonts/Mina-Bold.woff2') format('woff2'), url('./assets/fonts/Mina-Bold.woff') format('woff'),
@@ -40,7 +37,15 @@ html {
 }
 
 #root {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: center;
+}
+
+.positive {
+  color: var(--green-color);
+}
+
+.negative {
+  color: var(--red-color);
 }
