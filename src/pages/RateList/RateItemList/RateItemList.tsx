@@ -6,8 +6,15 @@ import {RateItemListProps, RenderRowProps} from './IRateItemList';
 import {FixedSizeList as List} from 'react-window';
 
 const RateItemList: React.FC<RateItemListProps> = ({rates}) => {
+  const headerFooterInputHeight = 172;
   return (
-    <List height={window.innerHeight} itemCount={rates.length} itemSize={90} width={'100%'} className={s.noScrollbar}>
+    <List
+      height={window.innerHeight - headerFooterInputHeight}
+      itemCount={rates.length}
+      itemSize={90}
+      width={'100%'}
+      className={s.noScrollbar}
+    >
       {({index, style}: RenderRowProps) => {
         const rate = rates[index];
         return (

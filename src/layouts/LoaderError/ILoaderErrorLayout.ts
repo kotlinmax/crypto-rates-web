@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 
-export interface ILoadingErrorLayoutProps {
+export interface ILoaderErrorLayoutProps {
   isLoading: boolean;
   error?: string | null;
   children?: ReactNode;

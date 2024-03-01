@@ -1,10 +1,44 @@
+:root {
+  // colors
+  --primary-color: #3898ec;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+
+  // fonts
+  --main-font-family: 'Mina', Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: 'Mina';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  // for all browser
+  src: url('./assets/fonts/Mina-Regular.eot');
+  src: url('./assets/fonts/Mina-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/Mina-Regular.woff2') format('woff2'), url('./assets/fonts/Mina-Regular.woff') format('woff'),
+    url('./assets/fonts/Mina-Regular.ttf') format('truetype'),
+    url('./assets/fonts/Mina-Regular.svg#Mina-Regular') format('svg');
+}
+
+@font-face {
+  font-family: 'Mina';
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  // for all browser
+  src: url('./assets/fonts/Mina-Bold.eot');
+  src: url('./assets/fonts/Mina-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/Mina-Bold.woff2') format('woff2'), url('./assets/fonts/Mina-Bold.woff') format('woff'),
+    url('./assets/fonts/Mina-Bold.ttf') format('truetype'), url('./assets/fonts/Mina-Bold.svg#Mina-Bold') format('svg');
+}
+
 html {
   font-size: 10px;
+  font-family: var(--main-font-family);
 }
 
 #root {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1.6rem;
 }

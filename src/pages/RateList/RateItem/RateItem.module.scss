@@ -1,24 +1,24 @@
 .rateItem {
   transition: all 0.2s ease-in;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px 0;
+  padding: 1.6rem;
+  margin: 1rem 0;
   background-color: #fff;
   width: 100%;
   display: flex;
   box-shadow: 0 2px 4px rgba(0.1, 0.1, 0.1, 0.1);
+  justify-content: space-between;
 
   &:hover {
-    border: 1.3px solid #3898ec;
+    border: 1.3px solid var(--primary-color);
     box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
   }
 }
 
 .header {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
   span {
     color: #333;
   }
@@ -26,7 +26,7 @@
 
 .body {
   div {
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
   }
 }
 

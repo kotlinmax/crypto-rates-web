@@ -1,10 +1,10 @@
 import React from 'react';
 import Loader from '../../components/Loader/Loader';
-import s from './LoadingErrorLayout.module.scss';
+import s from './LoaderErrorLayout.module.scss';
 
-import {ILoadingErrorLayoutProps} from './ILoadingErrorLayout';
+import {ILoaderErrorLayoutProps} from './ILoaderErrorLayout';
 
-const LoadingErrorLayout: React.FC<ILoadingErrorLayoutProps> = props => {
+const LoaderErrorLayout: React.FC<ILoaderErrorLayoutProps> = props => {
   const {isLoading, error, children} = props;
 
   if (isLoading) {
@@ -26,4 +26,4 @@ const LoadingErrorLayout: React.FC<ILoadingErrorLayoutProps> = props => {
   return <>{children}</>;
 };
 
-export default React.memo(LoadingErrorLayout);
+export default React.memo(LoaderErrorLayout);
