@@ -1,7 +1,7 @@
 :root {
-  --primary-color: #3898ec;
-  --secondary-color: #ccc;
-  --background-color: #f8f9fa;
+  --primary-color: #ccc;;
+  --secondary-color:  #3898ec;
+  --background-color: #ffffff;
   --text-color: #212529;
   --green-color: rgb(36, 181, 36);
   --red-color: rgb(196, 59, 59);
@@ -40,6 +40,7 @@ html {
   font-size: 1.4rem;
   display: flex;
   justify-content: center;
+  background-color: var(--secondary-color);
 }
 
 .positive {

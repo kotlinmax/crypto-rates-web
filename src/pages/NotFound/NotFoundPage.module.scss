@@ -1,0 +1,6 @@
+@import './../../styles//mixins.scss';
+
+.notFound {
+  @include flex-column-center;
+  font-size: 3rem;
+}

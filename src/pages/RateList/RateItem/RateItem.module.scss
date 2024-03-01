@@ -11,7 +11,7 @@
   justify-content: space-between;
 
   &:hover {
-    border: 1.3px solid var(--primary-color);
+    border: 1.3px solid var(--secondary-color);
     box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
   }
 }
@@ -25,6 +25,10 @@
 .body {
   div {
     margin-bottom: 0.8rem;
+  }
+  span {
+    display: block;
+    margin-bottom: 1rem;
   }
 }
 

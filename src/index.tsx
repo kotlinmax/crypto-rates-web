@@ -12,7 +12,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import HomePage from './pages/Home/HomePage';
 import ErrorBoundary from './layouts/ErrorBoundary/ErrorBoundary';
-import HeaderFooterLayout from './layouts/HeaderFooter/HeaderFooterLayout';
+import AppLayout from './layouts/AppLayout/AppLayout';
 
 const RateListPage = lazy(() => import('./pages/RateList/RateListPage'));
 const RateInfoPage = lazy(() => import('./pages/RateInfo/RateInfoPage'));
@@ -25,7 +25,7 @@ root.render(
     <StoresContext.Provider value={rootStore}>
       <BrowserRouter>
         <ErrorBoundary>
-          <HeaderFooterLayout>
+          <AppLayout>
             <Suspense fallback={<Loader />}>
               <Routes>
                 <Route path='/' element={<HomePage />} />
@@ -34,7 +34,7 @@ root.render(
                 <Route path='*' element={<NotFoundPage />} />
               </Routes>
             </Suspense>
-          </HeaderFooterLayout>
+          </AppLayout>
         </ErrorBoundary>
       </BrowserRouter>
     </StoresContext.Provider>

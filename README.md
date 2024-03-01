@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Crypto Rates Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Приложение "Crypto Rates Web" предоставляет актуальную информацию о курсах криптовалют.
 
-## Available Scripts
+## Демонстрация
 
-In the project directory, you can run:
+Проект доступен онлайн: [Crypto Rates Web Demo](https://65e34f581a90c3d59ca462ef--thriving-sable-f340b3.netlify.app/)
 
-### `npm start`
+## Особенности
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Просмотр актуальных курсов криптовалют
+- Поиск по базовым валютам
+- Сортировка по базовым валютам
+- Просмотр детальной информации по криптовалютной паре
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Технологии
 
-### `npm test`
+Проект создан с использованием следующих технологий:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React 18.2.0
+- React Router DOM для навигации
+- MobX для управления состоянием
+- Axios для HTTP-запросов
+- Lodash для утилит функционального программирования
+- React Window для оптимизации рендеринга больших списков
+- Sass для стилизации
+- TypeScript для типизации
+- Jest и Testing Library для тестирования
 
-### `npm run build`
+## Установка
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Чтобы запустить проект локально, выполните следующие шаги:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Клонируйте репозиторий:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone git@github.com:kotlinmax/crypto-rates-web.git
+cd crypto-rates-web
+```
 
-### `npm run eject`
+2. Установите зависимости:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Запустите проект:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm start
+```
+После запуска, проект будет доступен на http://localhost:3000/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Сборка для Production:
+Для создания оптимизированной версии приложения:
+```bash
+npm run build
+```
+Сборка будет доступна в директории build.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Тестирование
+Запустите тесты с помощью следующей команды:
+```bash
+npm test
+```

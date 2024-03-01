@@ -1,4 +1,4 @@
-@mixin f-center {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,9 +9,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-@mixin f-column {
-  display: flex;
-  flex-direction: column;
 }

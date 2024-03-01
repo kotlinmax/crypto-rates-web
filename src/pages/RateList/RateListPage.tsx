@@ -10,7 +10,8 @@ import LoaderErrorLayout from '../../layouts/LoaderError/LoaderErrorLayout';
 const RateListPage: React.FC = observer(() => {
   const store = useContext(StoresContext).ratesStore;
   const {rates, filteredRates, searchText, error} = store;
-  const {isEmpty, isLoading, isSearching, isDesc, isSorting} = store;
+  const {isNotFound, isLoading, isSearching, isDesc, isSorting} = store;
+  const isShowInfo = isSorting || isSearching || isNotFound;
 
   useEffect(() => {
     if (!store.rates.length) {
@@ -40,7 +41,12 @@ const RateListPage: React.FC = observer(() => {
   return (
     <main className={s.rateItemList}>
       <div className={s.top}>
-        <button className={s.sort} onClick={handleSortChange} title='Sort currency'>
+        <button 
+          className={s.sort} 
+          onClick={handleSortChange} 
+          title='Sort currency' 
+          aria-label="Sort currency button"
+        >
           Sort {isDesc ? '▼' : '▲'}
         </button>
         <input
@@ -49,15 +55,15 @@ const RateListPage: React.FC = observer(() => {
           value={searchText}
           onChange={handleSearchChange}
           placeholder='Search'
+          title='Search'
+          aria-label="Search field"
         />
       </div>
 
-      {isSorting ? (
-        <span className={s.info}> Sorting ...</span>
-      ) : isSearching ? (
-        <span className={s.info}> Searching ...</span>
-      ) : isEmpty ? (
-        <span className={s.info}> Not found rates.</span>
+      {isShowInfo ? (
+        <span className={s.info}> 
+          {isSorting ? 'Sorting...' : isSearching ? 'Searching...' : 'Not found rates.'}
+        </span>
       ) : (
         <LoaderErrorLayout isLoading={isLoading} error={error}>
           <RateItemList rates={filteredRates.length ? filteredRates : rates} isDesc={isDesc} />

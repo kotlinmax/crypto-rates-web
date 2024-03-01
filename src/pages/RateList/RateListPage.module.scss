@@ -25,17 +25,17 @@
       outline: none;
       padding: 1rem;
       margin: 0 2rem;
-      border: solid 1px var(--secondary-color);
+      border: solid 1px var(--primary-color);
 
       &:focus,
       &:hover {
-        border-color: var(--primary-color);
+        border-color: var(--secondary-color);
       }
     }
   }
 
   .info {
     height: 94%;
-    @include f-center;
+    @include flex-center;
   }
 }

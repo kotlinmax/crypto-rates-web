@@ -21,10 +21,10 @@ const RateItem: React.FC<RateItemProps> = props => {
         <span>{baseCurrency.toUpperCase()}</span>/<span>{targetCurrency.toUpperCase()}</span>
       </div>
       <div className={s.body}>
-        <div>Rate: {rate.toFixed(6)}</div>
-        <div className={diff24h >= 0 ? 'positive' : 'negative'}>
+        <span>Rate: {rate.toFixed(6)}</span>
+        <span className={diff24h >= 0 ? 'positive' : 'negative'}>
           24h Change: {(diff24h).toFixed(6)}
-        </div>
+        </span>
       </div>
     </button>
   );

@@ -19,9 +19,48 @@
     height: 20rem;
     border: solid 1px;
     box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
-
     span {
       margin: 0.7rem 0;
     }
+  }
+
+  .backButton {
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: transparent;
+    &:active {
+      color: var(--text-color);
+    }
+  }
+}
+
+.rotate {
+  -webkit-animation: rotate-in-hor 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: rotate-in-hor 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes rotate-in-hor {
+  0% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes rotate-in-hor {
+  0% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    opacity: 1;
   }
 }

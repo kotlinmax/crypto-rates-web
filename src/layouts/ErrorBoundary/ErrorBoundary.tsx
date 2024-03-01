@@ -1,22 +1,15 @@
-import React, {ErrorInfo, ReactNode} from 'react';
+import React, {ErrorInfo} from 'react';
 import s from './ErrorBoundary.module.scss';
+import { IErrorBoundaryProps, IErrorBoundaryState } from './IErrorBoundary';
 
-interface State {
-  error: Error | null;
-  errorInfo: ErrorInfo | null;
-}
-
-interface Props {
-  children?: ReactNode;
-}
-
-export default class ErrorBoundary extends React.Component<Props, State> {
-  constructor(props: Props) {
+export default class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
+  constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = {error: null, errorInfo: null};
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('error:', error)
     this.setState({error: error, errorInfo: errorInfo});
   }
 

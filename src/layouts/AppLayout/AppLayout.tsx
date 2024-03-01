@@ -1,15 +1,14 @@
 import React, {useContext, useEffect} from 'react';
-import s from './HeaderFooterLayout.module.scss';
+import s from './AppLayout.module.scss';
 
-import {IHeaderFooterLayoutProps} from './IHeaderFooterLayout';
+import {IAppLayoutProps} from './IAppLayout';
 import {StoresContext} from '../../stores/RootStore';
 import {observer} from 'mobx-react-lite';
 import {useNavigate} from 'react-router-dom';
 
-const HeaderFooterLayout: React.FC<IHeaderFooterLayoutProps> = observer(({children}) => {
-  const navigate = useNavigate();
+const AppLayout: React.FC<IAppLayoutProps> = observer(({children}) => {
   const ratesStore = useContext(StoresContext).ratesStore;
-  const {rates, filteredRates, isEmpty} = ratesStore;
+  const {rates, filteredRates, isNotFound} = ratesStore;
 
   useEffect(() => {
     document.getElementById('loading-screen')!.style.display = 'none';
@@ -20,13 +19,10 @@ const HeaderFooterLayout: React.FC<IHeaderFooterLayoutProps> = observer(({childr
       <header className={s.header}>Crypto Currency Rates</header>
       {children}
       <footer className={s.footer}>
-        <span>Total: {isEmpty ? 0 : filteredRates.length || rates.length}</span>
-        <button onClick={() => navigate(-1)} className={s.backButton}>
-          Back
-        </button>
+        <span>TOTAL: {isNotFound ? 0 : filteredRates.length || rates.length}</span>
       </footer>
     </div>
   );
 });
 
-export default HeaderFooterLayout;
+export default React.memo(AppLayout);

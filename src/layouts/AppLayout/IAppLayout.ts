@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
 
-export interface IHeaderFooterLayoutProps {
+export interface IAppLayoutProps {
   children: ReactNode;
 }
