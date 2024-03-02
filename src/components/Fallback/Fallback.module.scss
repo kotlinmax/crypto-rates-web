@@ -1,0 +1,21 @@
+@import '../../styles//mixins.scss';
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  height: 100vh;
+  width: 100%;
+}
+
+.fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 100;
+  font-size: 1.4rem;
+  height: 100vh;
+  width: 42rem;
+  max-width: 42rem;
+}

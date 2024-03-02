@@ -3,17 +3,13 @@ import RateItem from '../RateItem/RateItem';
 import s from './RateItemList.module.scss';
 
 import {RateItemListProps, RenderRowProps} from './IRateItemList';
-import {FixedSizeList as List} from 'react-window';
+import {FixedSizeList} from 'react-window';
+
+const LIST_HEIGHT = window.innerHeight - 159;
 
 const RateItemList: React.FC<RateItemListProps> = ({rates}) => {
   return (
-    <List
-      className={s.noScrollbar}
-      height={window.innerHeight - 161}
-      itemCount={rates.length}
-      itemSize={90}
-      width={'100%'}
-    >
+    <FixedSizeList className={s.noScrollbar} height={LIST_HEIGHT} itemCount={rates.length} itemSize={90} width={'100%'}>
       {({index, style}: RenderRowProps) => {
         const rate = rates[index];
         return (
@@ -29,7 +25,7 @@ const RateItemList: React.FC<RateItemListProps> = ({rates}) => {
           </div>
         );
       }}
-    </List>
+    </FixedSizeList>
   );
 };
 

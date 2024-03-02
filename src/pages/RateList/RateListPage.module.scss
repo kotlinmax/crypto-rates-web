@@ -1,7 +1,6 @@
 @import '../../styles//mixins.scss';
 
 .rateItemList {
-  @include flex-column-center;
   width: 100%;
   height: 100%;
   padding: 0 1rem;
@@ -12,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    margin-top: 6rem;
 
     .sort {
       font-size: 1.4rem;
@@ -35,7 +35,7 @@
   }
 
   .info {
-    height: 94%;
+    height: 80%;
     @include flex-center;
   }
 }

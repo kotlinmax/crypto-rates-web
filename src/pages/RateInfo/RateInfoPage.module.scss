@@ -13,6 +13,7 @@
   }
 
   .circle {
+    transition: box-shadow 0.3s ease-in;
     @include flex-column-center;
     border-radius: 50%;
     width: 20rem;
@@ -22,9 +23,13 @@
     span {
       margin: 0.7rem 0;
     }
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0.3, 0.3, 0.3, 0.3);
+    }
   }
 
   .backButton {
+    transition: scale 0.1s ease-in;
     margin-top: 3rem;
     font-size: 1.6rem;
     color: var(--text-color);
@@ -32,35 +37,39 @@
     &:active {
       color: var(--text-color);
     }
+    &:hover {
+      scale: 1.1;
+      color: var(--secondary-color);
+    }
   }
 }
 
 .rotate {
-  -webkit-animation: rotate-in-hor 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-          animation: rotate-in-hor 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: rotate-in-hor 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: rotate-in-hor 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @-webkit-keyframes rotate-in-hor {
   0% {
     -webkit-transform: rotateX(360deg);
-            transform: rotateX(360deg);
+    transform: rotateX(360deg);
     opacity: 0;
   }
   100% {
     -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+    transform: rotateX(0deg);
     opacity: 1;
   }
 }
 @keyframes rotate-in-hor {
   0% {
     -webkit-transform: rotateX(360deg);
-            transform: rotateX(360deg);
+    transform: rotateX(360deg);
     opacity: 0;
   }
   100% {
     -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
+    transform: rotateX(0deg);
     opacity: 1;
   }
 }

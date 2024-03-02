@@ -27,7 +27,7 @@ const RateListPage: React.FC = observer(() => {
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     store.setIsSearching(true);
     store.setSearchText(e.target.value);
-    debouncedSearch(e.target.value);
+    debouncedSearch(e.target.value); // for big data
   };
 
   const handleSortChange = () => {
@@ -35,18 +35,13 @@ const RateListPage: React.FC = observer(() => {
     setTimeout(() => {
       store.changeSort();
       store.setIsSorting(false);
-    }, 0); // for big data (1 million)
+    }, 0); // for big data
   };
 
   return (
     <main className={s.rateItemList}>
       <div className={s.top}>
-        <button 
-          className={s.sort} 
-          onClick={handleSortChange} 
-          title='Sort currency' 
-          aria-label="Sort currency button"
-        >
+        <button className={s.sort} onClick={handleSortChange} title='Sort currency' aria-label='Sort currency button'>
           Sort {isDesc ? '▼' : '▲'}
         </button>
         <input
@@ -56,14 +51,12 @@ const RateListPage: React.FC = observer(() => {
           onChange={handleSearchChange}
           placeholder='Search'
           title='Search'
-          aria-label="Search field"
+          aria-label='Search field'
         />
       </div>
 
       {isShowInfo ? (
-        <span className={s.info}> 
-          {isSorting ? 'Sorting...' : isSearching ? 'Searching...' : 'Not found rates.'}
-        </span>
+        <span className={s.info}>{isSorting ? 'Sorting...' : isSearching ? 'Searching...' : 'Not found rates.'}</span>
       ) : (
         <LoaderErrorLayout isLoading={isLoading} error={error}>
           <RateItemList rates={filteredRates.length ? filteredRates : rates} isDesc={isDesc} />
